@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    
+    <title>Another Weather App</title>
+</head>
+<body>
+    <main>
+    <img id="logo" src="./images/white-menu-logo.svg" alt="">
+    <div id="welcomeScreen">
+        
+        <h2>Another Weather App</h2>
+        <p>Made by Another Eclipse ©</p>
+    </div>
+    <div class="alert-window">
+        <p id="alertWindow">
+        </p>
+    </div>
+    <img id="weatherBackground" src="" alt="">
+    <div id="overlay"></div>
+    <div id="sky"></div>
+    <div id="drops"></div>
+    <div id="lightning"></div>
+    <div class="cloud-container">
+    <div class="cloud1"></div>
+    <div class="weather-container">
+        <div id="weather">
+            <h2 id="realTemp"></h2>
+            <h2 id="feelTemp"></h2>
+            <div id="title">
+                <p id="cityAdjective" hidden>
+                <p id="cityName" hidden>
+            </div>
+        </div>
+        <div class="sun-container">
+            <div class="sun">
+                <img id="sunReplacement" src="./images/sun.png" alt="">
+            </div>
+        </div>  
+        <div class="sun-cover"></div>
+    </div>
+    <div class="buttons">
+        <a href="javascript:void(0)" id="hometownBox" onclick="showHometown()">Hometown</a>
+        <div id="hometownButtons">
+            <select name="Hometown" id="hometown">Hometown
+                <option value="slavonskibrod">Slavonski Brod</option>
+                <option value="osijek">Osijek</option>
+                <option value="odense">Odense</option>
+                <option value="strosinci">Strošinci</option>
+                <option value="badaibling">Bad Aibling</option>
+            </select>
+            <button type="submit" onclick="saveHometown()">Save my hometown</button>
+        </div>
+
+        <a href="javascript:void(0)" id="citiesBox" onclick="showCities()">City</a>
+        <div id="cityButtons">
+            <button type="button" class="city-button" onclick="getBrodResult()">Slavonski Brod</button>
+            <button type="button" class="city-button" onclick="getOsijekResult()">Osijek</button>
+            <button type="button" class="city-button" onclick="getStrosinciResult()">Strošinci</button>
+            <button type="button" class="city-button" onclick="getOdenseResult()">Odense</button>
+            <button type="button" class="city-button" onclick="getBadAiblingResult()">Bad Aibling</button>
+        </div>
+    </div>
+    
+</main>
+
+<script src="./main.js"></script>
+</body>
+</html>
