@@ -100,7 +100,7 @@ h3 {
   }
 
   #overlay {
-    height: 80% !important;
+    height: 100vh !important;
   }
 
   #alertWindow {
@@ -141,9 +141,10 @@ h3 {
 
 
   .sun-cover {
-    margin-top: 32% !important;
-    height: 150px !important;
+    margin-top: 67vh !important;
+    height: 227vh !important;
     margin-left: 0 !important;
+    position: absolute;
   }
 
   #sky.rainy {
@@ -152,11 +153,13 @@ h3 {
   }
 
   .sun-container {
-    height: calc(100% - 50px) !important;
-    width: 105vw !important;
-    top: 63% !important;
+    height: calc(100vh - 10vh) !important;
+    width: calc(100vw - 10vh) !important;
+    top: 33vh !important;
     overflow: hidden !important;
     left: -4% !important;
+    justify-content: center;
+    display: grid;
   }
   .sun {
     padding-top: 0 !important;
@@ -181,10 +184,11 @@ h3 {
 
 
   .buttons {
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
+    bottom: 5vh;
   }
 
   #hometownButtons, #cityButtons {
@@ -403,6 +407,10 @@ h3 {
   }
 }
 
+#weatherBackground {
+  height: 75vh !important;
+}
+
 
 
 
@@ -413,7 +421,11 @@ h3 {
 #title {
     display: flex;
     z-index: 20;
-    white-space: nowrap;
+    position: absolute;
+    text-align: center;
+    bottom: 15vh !important;
+    top: auto !important;
+    margin-top: auto !important;
 }
 
 #feelTemp {
