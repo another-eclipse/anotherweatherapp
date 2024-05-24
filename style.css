@@ -56,12 +56,532 @@ h3 {
 #weather {
   position: absolute;
     display: flex;
-    margin-top: 280px;
+    margin-top: 33vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 20;
 }
+
+
+
+#title {
+    display: flex;
+    position: absolute;
+    text-align: center;
+    bottom: 15vh !important;
+    margin-top: auto !important;
+    font-family: 'ModernLove';
+    letter-spacing: 0.2rem;
+    font-weight: 100;
+    font-size: 60px;
+    width: 100%;
+    justify-content: center;
+    top: 80vh;
+}
+
+#feelTemp {
+  font-size: 35px;
+  color: white;
+  margin-top: -20px !important;
+}
+
+#feelTemp, #realTemp {
+  margin: 5px;
+  z-index: 20;
+  text-shadow: rgb(0, 0, 0) 1px 0 10px;
+}
+
+
+.sun-container {
+  width: 70vw;
+  height: 70vh;
+  margin: auto;
+}
+.sun {
+  top: 8vh;
+  padding-top:calc(100% - 40px);
+  position:relative;
+  border-radius:50%;
+  border:3px solid rgb(255, 255, 255);
+  transform:rotateX(20deg) rotate(20deg);
+  background-repeat:no-repeat;
+}
+#sunReplacement {
+  content: "";
+  position:absolute;
+  top:calc(50% - 20px);
+  left:-80px;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
+  pointer-events: none;
+}
+
+#sunReplacement.sunny {
+  content:url("./images/sun.png");
+}
+
+#sunReplacement.clouds {
+  content:url("./images/cloud.png");
+}
+
+.clouds {
+  height: 200px;
+  width: auto;
+  position: absolute;
+  right: 5%;
+  animation: move1 5s ease-in-out infinite;
+  rotate: var(--rotation);
+}
+
+@keyframes move1 {
+  0% {
+    transform: translatex(0);
+  }
+  50% {
+    transform: translatex(-40px);
+  }
+}
+
+
+.sunny {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  position: absolute;
+  
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
+}
+
+.weather-container {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  height:80vh;
+}
+
+.sun-cover {
+  background: white;
+  display: block;
+  width: 120%;
+  z-index: 10;
+  height: 2000px;
+  margin-top: 77vh;
+  margin-left: -7%;
+  position: absolute;
+}
+
+#weatherBackground {
+  width: 100%;
+  height: 78vh;
+  position: absolute;
+  object-fit: cover;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+#realTemp {
+  color: white;
+  font-size: 72px;
+  font-weight: bolder;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 78vh;
+  opacity: 0.5;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+
+.sunny-overlay {
+  background-color: rgb(255, 203, 72);
+}
+
+.rain-overlay {
+  background: rgb(45, 45, 123);
+  background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgb(104, 230, 255) 100%);
+}
+
+.clouds-overlay {
+  background-color: rgb(90, 142, 169);
+}
+
+.snow-overlay {
+  background-color: rgb(138, 181, 255);
+}
+
+#lightning.stormy {
+  display: grid;
+  top: -40px;
+  height: 600px;
+  width: 60%;
+  left: 50%;
+  position: absolute;
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
+  background-image: url(./images/storm.gif);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#sky, #drops, #lightning {
+  display: none;
+}
+
+#sky.rainy {
+  display: block;
+  position: absolute;
+  margin-top: -10px;
+  opacity: 0.5;
+  height: 800px;
+  width: 100%;
+  background-image: url("./images/rain2.gif");
+  background-repeat: repeat-x;
+  background-size: contain;
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
+}
+
+#sky.snowy {
+  display: block;
+  position: absolute;
+  margin-top: -10px;
+  height: 800px;
+  width: 100%;
+  background-image: url("./images/snow.gif");
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+
+#sky.drizzly {
+  display: block;
+  position: absolute;
+  margin-top: -10px;
+  height: 800px;
+  width: 100%;
+  background-image: url("./images/rain.gif");
+  background-repeat: repeat-x;
+  background-size: contain;
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
+}
+
+/* #sky.cloudy {
+  display: flex;
+    position: absolute;
+    margin-top: -10px;
+    height: 550px;
+    width: 100%;
+    background-image: url(./images/cloudbg.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: contain;
+} */
+
+#lightning {
+  display: none;
+}
+
+#drops.rainy {
+  display: block;
+  position: absolute;
+  margin-top: 60vh;
+  height: 200px;
+  opacity: 0.5;
+  width: 100%;
+  background-image: url("./images/drops.gif");
+  background-repeat: repeat-x;
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
+}
+
+.cloud1 {
+  display: none;
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%) blur(4px);;
+}
+
+.cloud1.animate {
+  top: 0px;
+	left: 50px;
+  height: 300px;
+  width: 150%;
+  opacity: 0.6;
+  position: absolute;
+  display: inline;
+  background-image: url("./images/clouds1.png");
+  background-size: contain;
+  background-repeat: repeat;
+  animation: move2 35s ease-in-out infinite;
+}
+
+@keyframes move2 {
+  0% {
+    transform: translatex(-50px);
+  }
+  50% {
+    transform: translatex(-200px);
+  }
+  100% {
+    transform: translatex(-50px);
+  }
+}
+
+/* #welcomeScreen {
+  background-color: rgb(77, 134, 169);
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+} */
+
+/* #logo {
+  display: none;
+  width: 80vw;
+  top: 16vh;
+  justify-self: center;
+  animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  z-index: 55;
+} */
+
+#logo.fade {
+  top: 45%;
+  margin: 0;
+  transition: all 4s ease-in-out;
+  animation: fade2 4s linear;
+}
+
+@-webkit-keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+            transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+            transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+
+@keyframes fade2 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.5;
+  }
+
+  90% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.buttons {
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  width: 100vw;
+  bottom: -17vh;
+  gap: 20px;
+}
+
+#citiesBox {
+  margin-right: 40px;
+}
+
+
+#hometownButtons, #cityButtons {
+  opacity: 0;
+  display: grid;
+  /* opacity: 0; */
+  width: 300px;
+  right: 0;
+  padding: 2%;
+  margin: 2%;
+  bottom: 90%;
+  background: rgb(221, 242, 255);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
+  /* height: 10vh; */
+  gap: 10px;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  user-select: none;
+  pointer-events: none;
+}
+
+#hometownButtons {
+  height: 10vh;
+}
+
+#hometownButtons.visible, #cityButtons.visible {
+  display: grid;
+  position: absolute;
+  user-select: auto;
+  pointer-events: auto;
+  z-index: 70;
+} 
+
+script {
+  display: none;
+}
+
+@keyframes move3 {
+  0% {
+    transform: translatex(0);
+  }
+  50% {
+    transform: translatex(-20px);
+  }
+}
+
+#citiesBox, #hometownBox {
+  width: 60px;
+  height: 60px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10%;
+  border: 2px dotted rgb(0, 0, 0);
+}
+
+#citiesBox {
+  content: url("./images/cityscape_2451548.png");
+}
+
+#hometownBox {
+  content: url("./images/home_3010900.png");
+}
+
+#hometownButtons.visible {
+  width: 300px;
+  right: 0;
+  padding: 2%;
+  opacity: 1;
+  margin: 2%;
+  bottom: 90%;
+  background: rgb(221, 242, 255);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
+  height: 10vh;
+  gap: 10px;
+}
+
+#cityButtons.visible {
+  width: 300px;
+  right: 0;
+  padding: 2%;
+  opacity: 1;
+  margin: 2%;
+  bottom: 90%;
+  background: rgb(221, 242, 255);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
+  height: fit-content;
+  gap: 10px;
+}
+
+.city-button {
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(77, 134, 169);
+  font-family: "ModernLoveCaps";
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+#hometownButtons button {
+  cursor: pointer;
+}
+
+#hometown {
+  border-radius: 10px;
+  font-family: "ModernLoveCaps";
+  font-size: 20px;
+  border: none;
+}
+
+#hometownButtons button {
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(77, 134, 169);
+  font-family: "ModernLoveCaps";
+  font-size: 20px;
+  color: white;
+}
+
+
+.alert-window {
+  display: none;
+}
+
+#alertWindow {
+  position: absolute;
+  width: 12vw;
+  padding: 2%;
+  z-index: 60;
+  opacity: 0;
+  top: 0;
+  background: rgb(221, 242, 255);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
+  height: 10vh;
+  justify-self: center;
+  transition: 1s;
+  text-align: center;
+  font-size: 24px;
+  font-family: "ModernLoveCaps";
+  align-content: center;
+}
+
+.alert-window {
+  display: grid;
+  position: relative;
+  justify-content: center;
+  z-index: 60;
+}
+
 
 @media screen and (max-width: 820px) {
   body {
@@ -86,17 +606,11 @@ h3 {
   }
 
   #title {
-    top: 20px !important;
     text-wrap: wrap !important;
-    display: flex !important;
-    flex-direction: column;
     color: black;
     font-family: 'ModernLove';
-    letter-spacing: 0.2rem;
-    font-weight: 100;
     font-size: 32px;
-    width: 95%;
-    margin-top: 60% !important;
+    margin-bottom: 16vh;
   }
 
   #overlay {
@@ -114,7 +628,7 @@ h3 {
     background: rgb(221, 242, 255);
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
-    height: 10vh;
+    height: fit-content;
     justify-self: center;
     transition: 1s;
     text-align: center;
@@ -134,9 +648,11 @@ h3 {
   }
 
   .sun {
-    width: 400px !important;
-    height: 400px !important;
+    width: 350px !important;
+    height: 350px !important;
     overflow: visible !important; 
+    padding-top: 0 !important;
+    top: 13vh !important;
   }
 
 
@@ -156,13 +672,10 @@ h3 {
     height: calc(100vh - 10vh) !important;
     width: calc(100vw - 10vh) !important;
     top: 33vh !important;
-    overflow: hidden !important;
-    left: -4% !important;
+    overflow: visible !important;
+    left: 0 !important;
     justify-content: center;
     display: grid;
-  }
-  .sun {
-    padding-top: 0 !important;
   }
 
   #sunReplacement {
@@ -219,6 +732,7 @@ h3 {
     margin-top: 10px;
     padding: 10px;
     border-radius: 10%;
+    margin-right: 0;
     border: 2px dotted rgb(0, 0, 0);
   }
 
@@ -411,277 +925,4 @@ h3 {
   height: 75vh !important;
 }
 
-
-
-
-
-
-}
-
-#title {
-    display: flex;
-    z-index: 20;
-    position: absolute;
-    text-align: center;
-    bottom: 15vh !important;
-    top: auto !important;
-    margin-top: auto !important;
-}
-
-#feelTemp {
-  font-size: 35px;
-  color: white;
-}
-
-#feelTemp, #realTemp {
-  margin: 5px;
-  z-index: 20;
-}
-
-#title h1 {
-  top: 60px;
-}
-
-.sun-container {
-  top: -55px;
-  width: 1000px;
-  height: 550px;
-  margin: auto;
-}
-.sun {
-  margin:20px;
-  top: 55px;
-  padding-top:calc(100% - 40px);
-  position:relative;
-  border-radius:50%;
-  border:3px solid rgb(255, 255, 255);
-  transform:rotateX(20deg) rotate(20deg);
-  background-repeat:no-repeat;
-}
-#sunReplacement {
-  content: "";
-  position:absolute;
-  top:calc(50% - 20px);
-  left:-80px;
-  width:200px;
-  height:200px;
-  border-radius:50%;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
-  pointer-events: none;
-}
-
-#sunReplacement.sunny {
-  content:url("./images/sun.png");
-}
-
-#sunReplacement.clouds {
-  content:url("./images/cloud.png");
-}
-
-.clouds {
-  height: 200px;
-  width: auto;
-  position: absolute;
-  right: 5%;
-  animation: move1 5s ease-in-out infinite;
-  rotate: var(--rotation);
-}
-
-@keyframes move1 {
-  0% {
-    transform: translatex(0);
-  }
-  50% {
-    transform: translatex(-40px);
-  }
-}
-
-
-.sunny {
-  height: 200px;
-  width: 200px;
-  display: flex;
-  position: absolute;
-  
-  animation: spin 10s linear infinite;
-}
-
-@keyframes spin { 
-  100% { 
-      -webkit-transform: rotate(360deg); 
-      transform:rotate(360deg); 
-  } 
-}
-
-.weather-container {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  margin-top: 5%;
-}
-
-.sun-cover {
-  background: white;
-  display: block;
-  width: 120%;
-  z-index: 10;
-  height: 2000px;
-  margin-top: -71px;
-  margin-left: -7%;
-}
-
-#weatherBackground {
-  width: 100%;
-  height: 630px;
-  position: absolute;
-  object-fit: cover;
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
-
-#realTemp {
-  color: white;
-  font-size: 72px;
-  font-weight: bolder;
-}
-
-#overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2000px;
-  opacity: 0.5;
-  z-index: 2;
-  transition: all 0.3s ease-in-out;
-}
-
-.sunny-overlay {
-  background-color: rgb(255, 203, 72);
-}
-
-.rain-overlay {
-  background: rgb(45, 45, 123);
-  background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgb(104, 230, 255) 100%);
-}
-
-.clouds-overlay {
-  background-color: rgb(90, 142, 169);
-}
-
-.snow-overlay {
-  background-color: rgb(138, 181, 255);
-}
-
-#lightning.stormy {
-  display: grid;
-  top: -40px;
-  height: 600px;
-  width: 60%;
-  left: 50%;
-  position: absolute;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
-  background-image: url(./images/storm.gif);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-#sky, #drops, #lightning {
-  display: none;
-}
-
-#sky.rainy {
-  display: block;
-  position: absolute;
-  margin-top: -10px;
-  opacity: 0.5;
-  height: 800px;
-  width: 100%;
-  background-image: url("./images/rain2.gif");
-  background-repeat: repeat-x;
-  background-size: contain;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
-}
-
-#sky.snowy {
-  display: block;
-  position: absolute;
-  margin-top: -10px;
-  height: 800px;
-  width: 100%;
-  background-image: url("./images/snow.gif");
-  background-repeat: repeat-x;
-  background-size: contain;
-}
-
-#sky.drizzly {
-  display: block;
-  position: absolute;
-  margin-top: -10px;
-  height: 800px;
-  width: 100%;
-  background-image: url("./images/rain.gif");
-  background-repeat: repeat-x;
-  background-size: contain;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
-}
-
-/* #sky.cloudy {
-  display: flex;
-    position: absolute;
-    margin-top: -10px;
-    height: 550px;
-    width: 100%;
-    background-image: url(./images/cloudbg.png);
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-size: contain;
-} */
-
-#lightning {
-  display: none;
-}
-
-#drops.rainy {
-  display: block;
-  position: absolute;
-  margin-top: 450px;
-  height: 200px;
-  opacity: 0.5;
-  width: 100%;
-  background-image: url("./images/drops.gif");
-  background-repeat: repeat-x;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
-}
-
-.cloud1 {
-  display: none;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%) blur(4px);;
-}
-
-.cloud1.animate {
-  top: 0px;
-	left: 50px;
-  height: 300px;
-  width: 150%;
-  opacity: 0.6;
-  position: absolute;
-  display: inline;
-  background-image: url("./images/clouds1.png");
-  background-size: contain;
-  background-repeat: repeat;
-  animation: move2 35s ease-in-out infinite;
-}
-
-@keyframes move2 {
-  0% {
-    transform: translatex(-50px);
-  }
-  50% {
-    transform: translatex(-200px);
-  }
-  100% {
-    transform: translatex(-50px);
-  }
 }
