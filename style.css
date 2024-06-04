@@ -554,7 +554,7 @@ script {
     overflow: hidden;
     height: 100vh;
     transition: all 1s ease-in-out;
-    margin-top: -3%;
+    margin-top: -10%;
   }
 
   #weather, #weatherBackground {
@@ -848,8 +848,8 @@ script {
   }
 
   #grass {
-    top: 68vh;
-    width: 150%;
+    top: 64vh;
+    width: 222%;
   }
 
   #statue {
