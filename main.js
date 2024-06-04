@@ -25,9 +25,10 @@ let alertWindow = document.getElementById("alertWindow");
 let welcomeScreen = document.getElementById("welcomeScreen");
 let logo = document.getElementById("logo");
 let weatherContainer = document.getElementById("weather");
+let vectorsSB = document.getElementById("vectorsSB");
 
 window.addEventListener("load", function() {
-    welcomeScreen.style.display = "grid";
+    // welcomeScreen.style.display = "grid";
 
     switch(localHometown){
         case "osijek":
@@ -47,11 +48,6 @@ window.addEventListener("load", function() {
             break;
     }
 
-    setTimeout(() => welcomeScreen.classList.add("fade"), 4000);
-    setTimeout(() => welcomeScreen.style.display = "none", 6000);
-    
-    setTimeout(() => logo.classList.add("fade"), 5000);
-    setTimeout(() => logo.style.display = "none", 9000);
 
 });
 
@@ -76,6 +72,7 @@ async function getBrodResult() {
             fillData(resultData);
             weatherBackground.src = './images/sb1.png';
             cityButtons.classList.remove("visible");
+            vectorsSB.classList.add("visible");
         } catch (err) {
             console.log(err);
         }
@@ -268,7 +265,7 @@ function animateSun() {
     const hours = currentDate.getHours();
     var sunsetFinal = sunsetDate.getHours();
     var sunriseFinal = sunriseDate.getHours();
-    var x = ((hours - sunriseFinal)/(sunsetFinal - sunriseFinal)) * 180;
+    var x = Math.round(((hours - sunriseFinal)/(sunsetFinal - sunriseFinal)) * 180);
     document.querySelector(':root').style.setProperty('--rotation', '-'+x+'deg');
     
     sun.style.transform="rotate("+x+"deg)";

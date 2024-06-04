@@ -77,7 +77,7 @@ h3 {
     font-size: 60px;
     width: 100%;
     justify-content: center;
-    top: 80vh;
+    top: 77vh;
 }
 
 #feelTemp {
@@ -100,12 +100,13 @@ h3 {
 }
 .sun {
   top: 8vh;
-  padding-top:calc(100% - 40px);
+  padding-top:calc(100% - 20px);
   position:relative;
   border-radius:50%;
   border:3px solid rgb(255, 255, 255);
   transform:rotateX(20deg) rotate(20deg);
   background-repeat:no-repeat;
+  transition: all 0.3s ease-in-out;
 }
 #sunReplacement {
   content: "";
@@ -125,6 +126,10 @@ h3 {
 
 #sunReplacement.clouds {
   content:url("./images/cloud.png");
+}
+
+.cloud-container{
+  overflow: hidden;
 }
 
 .clouds {
@@ -172,7 +177,7 @@ h3 {
 .sun-cover {
   background: white;
   display: block;
-  width: 120%;
+  width: 150%;
   z-index: 10;
   height: 2000px;
   margin-top: 77vh;
@@ -190,6 +195,9 @@ h3 {
   left: 0;
 }
 
+
+
+
 #realTemp {
   color: white;
   font-size: 72px;
@@ -205,6 +213,42 @@ h3 {
   opacity: 0.5;
   z-index: 2;
   transition: all 0.3s ease-in-out;
+}
+
+.vectors {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 78vh;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+
+#grass {
+  position: absolute;
+  bottom: -2%;
+  left: -4vw;
+  width: 110%;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+  filter: brightness(0) saturate(100%) invert(99%) sepia(100%) saturate(8%) hue-rotate(299deg) brightness(107%) contrast(100%);
+}
+
+#dandelion {
+  position: absolute;
+  bottom: 0;
+  height: 30vh;
+  left: 50vw;
+}
+
+#statue {
+  position: absolute;
+  bottom: 0;
+  height: 20vh;
+  left: 30vw;
+  filter: brightness(0) saturate(100%) invert(99%) sepia(100%) saturate(8%) hue-rotate(299deg) brightness(107%) contrast(100%);
 }
 
 .sunny-overlay {
@@ -277,17 +321,7 @@ h3 {
   filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
 }
 
-/* #sky.cloudy {
-  display: flex;
-    position: absolute;
-    margin-top: -10px;
-    height: 550px;
-    width: 100%;
-    background-image: url(./images/cloudbg.png);
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-size: contain;
-} */
+
 
 #lightning {
   display: none;
@@ -336,86 +370,6 @@ h3 {
   }
 }
 
-/* #welcomeScreen {
-  background-color: rgb(77, 134, 169);
-  display: none;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 50;
-} */
-
-/* #logo {
-  display: none;
-  width: 80vw;
-  top: 16vh;
-  justify-self: center;
-  animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-  z-index: 55;
-} */
-
-#logo.fade {
-  top: 45%;
-  margin: 0;
-  transition: all 4s ease-in-out;
-  animation: fade2 4s linear;
-}
-
-@-webkit-keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
-}
-@keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
-}
-
-@keyframes fade2 {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.7;
-  }
-  85% {
-    opacity: 0.5;
-  }
-
-  90% {
-    opacity: 0.3;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
 
 .buttons {
   position: absolute;
@@ -428,6 +382,14 @@ h3 {
 
 #citiesBox {
   margin-right: 40px;
+}
+
+#vectorsSB {
+  display: none;
+}
+
+#vectorsSB.visible {
+  display: block;
 }
 
 
@@ -443,7 +405,6 @@ h3 {
   background: rgb(221, 242, 255);
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
-  /* height: 10vh; */
   gap: 10px;
   position: absolute;
   transition: all 0.4s ease-in-out;
@@ -593,6 +554,7 @@ script {
     overflow: hidden;
     height: 100vh;
     transition: all 1s ease-in-out;
+    margin-top: -3%;
   }
 
   #weather, #weatherBackground {
@@ -610,11 +572,11 @@ script {
     color: black;
     font-family: 'ModernLove';
     font-size: 32px;
-    margin-bottom: 16vh;
+    top: 74vh !important;
   }
 
   #overlay {
-    height: 100vh !important;
+    height: 75vh !important;
   }
 
   #alertWindow {
@@ -648,19 +610,20 @@ script {
   }
 
   .sun {
-    width: 350px !important;
-    height: 350px !important;
+    width: 90vw !important;
+    height: 90vw !important;
     overflow: visible !important; 
     padding-top: 0 !important;
-    top: 13vh !important;
+    
   }
 
 
   .sun-cover {
-    margin-top: 67vh !important;
-    height: 227vh !important;
-    margin-left: 0 !important;
-    position: absolute;
+    margin-top: -34% !important;
+        height: 227vh !important;
+        margin-left: -32% !important;
+        width: 200%;
+        position: relative;
   }
 
   #sky.rainy {
@@ -671,7 +634,7 @@ script {
   .sun-container {
     height: calc(100vh - 10vh) !important;
     width: calc(100vw - 10vh) !important;
-    top: 33vh !important;
+    top: 48vh !important;
     overflow: visible !important;
     left: 0 !important;
     justify-content: center;
@@ -681,7 +644,7 @@ script {
   #sunReplacement {
     height: 90px !important;
     width: 90px !important;
-    left: -36px !important;
+    left: -46px !important;
     animation: move3 5s ease-in-out infinite;
   }
 
@@ -727,8 +690,8 @@ script {
   }
   
   #citiesBox, #hometownBox {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     margin-top: 10px;
     padding: 10px;
     border-radius: 10%;
@@ -753,7 +716,7 @@ script {
     background: rgb(221, 242, 255);
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
-    height: 10vh;
+    height: fit-content;
     gap: 10px;
   }
 
@@ -766,7 +729,7 @@ script {
     background: rgb(221, 242, 255);
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
-    height: 30vh;
+    height: fit-content;
     gap: 10px;
   }
 
@@ -777,6 +740,10 @@ script {
     font-family: "ModernLoveCaps";
     font-size: 20px;
     color: white;
+  }
+
+  #drops.rainy {
+    margin-top: 56vh;
   }
 
   #hometown {
@@ -876,53 +843,23 @@ script {
     }
   }
 
-/* ----------------------------------------------
- * Generated by Animista on 2024-5-23 15:32:3
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
+  #weatherBackground {
+    height: 75vh !important;
+  }
 
-/**
- * ----------------------------------------
- * animation swing-in-top-fwd
- * ----------------------------------------
- */
- @-webkit-keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
+  #grass {
+    top: 68vh;
+    width: 150%;
   }
-  100% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
-}
-@keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
-}
 
-#weatherBackground {
-  height: 75vh !important;
-}
+  #statue {
+    height: 13vh;
+    top: 64vh;
+  }
+
+  #dandelion {
+    left: 45vw;
+    height: 20vh;
+  }
 
 }
