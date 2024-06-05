@@ -262,13 +262,23 @@ function animateSun() {
     sunriseDate = new Date(sunriseTimestamp * 1000);
 	sunsetDate = new Date(sunsetTimestamp * 1000);
 	const currentDate = new Date();
-    const hours = currentDate.getHours();
+    // const hours = currentDate.getHours();
+    const hours = 22;
     var sunsetFinal = sunsetDate.getHours();
     var sunriseFinal = sunriseDate.getHours();
     var x = Math.round(((hours - sunriseFinal)/(sunsetFinal - sunriseFinal)) * 180);
     document.querySelector(':root').style.setProperty('--rotation', '-'+x+'deg');
     
     sun.style.transform="rotate("+x+"deg)";
+    if(hours > sunsetFinal || hours < sunriseFinal){
+        console.log(hours);
+        overlay.classList.add("night");
+        cityAdjective.innerHTML = 'dark';
+        drops.classList.add("night");
+    } else {
+        overlay.classList.remove("night");
+        drops.classList.remove("night");
+    }
 }
 
 
@@ -332,3 +342,15 @@ function showCities() {
     cityButtons.classList.toggle("visible");
     hometownButtons.classList.remove("visible");
 }
+
+// variables declarations
+var i;
+var star = document.getElementsByClassName("star").length;
+var length = document.documentElement.clientWidth;
+// we use for loop to assign unique random values for the x position and animation speed
+for (i = 0; i < star; i++) {
+  x = Math.floor(Math.random() * length);
+  y = Math.floor(Math.random() * 10);
+document.getElementsByClassName("star")[i].style.transform = "translateX(" + x + "px)";
+document.getElementsByClassName("star")[i].style.animationDuration = y + "s";  
+} 

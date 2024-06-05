@@ -120,8 +120,34 @@ h3 {
   pointer-events: none;
 }
 
+#moon {
+  content: "";
+  position:absolute;
+  top:calc(50% - 20px);
+  right:-80px;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
+  pointer-events: none;
+  animation: swing 5s ease-in-out infinite;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(80deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
 #sunReplacement.sunny {
   content:url("./images/sun.png");
+  animation: spin 10s linear infinite;
 }
 
 #sunReplacement.clouds {
@@ -213,6 +239,14 @@ h3 {
   opacity: 0.5;
   z-index: 2;
   transition: all 0.3s ease-in-out;
+}
+
+#overlay.night {
+  background: rgb(2,0,36);
+background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  opacity: 1;
+  width: 100%;
+  background-size: cover;
 }
 
 .vectors {
@@ -338,6 +372,42 @@ h3 {
   background-repeat: repeat-x;
   filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
 }
+#drops.night {
+  display: block;
+  position: absolute;
+  margin-top: 68vh;
+  height: 100px;
+  opacity: 1;
+  width: 100%;
+  background-size: contain;
+  background-image: url("./images/fireflies.webp");
+  background-repeat: repeat-x;
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%) blur(1px);
+}
+
+.starry-sky{
+  position: absolute;
+  top: 0;
+}
+
+.star {
+  color: rgb(255, 255, 255);
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  filter: blur(1px);
+ }
+ @keyframes blink {
+   0% {
+    opacity: 0;
+   }
+   50% {
+    opacity: 1;
+   }
+   100% {
+    opacity: 0;
+   }
+ }
 
 .cloud1 {
   display: none;
@@ -579,6 +649,8 @@ script {
     height: 75vh !important;
   }
 
+  
+
   #alertWindow {
     position: absolute;
     width: 50vw;
@@ -614,8 +686,9 @@ script {
     height: 90vw !important;
     overflow: visible !important; 
     padding-top: 0 !important;
-    
+    top: 6vh;
   }
+
 
 
   .sun-cover {
@@ -648,6 +721,13 @@ script {
     animation: move3 5s ease-in-out infinite;
   }
 
+  #moon {
+    height: 90px !important;
+    width: 90px !important;
+    right: -46px !important;
+    animation: swing 5s ease-in-out infinite; 
+  }
+
   #realTemp {
     margin-top: -30% !important;
     text-shadow: rgb(0, 0, 0) 1px 0 10px;
@@ -664,7 +744,7 @@ script {
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
-    bottom: 5vh;
+    bottom: 11vh;
   }
 
   #hometownButtons, #cityButtons {
