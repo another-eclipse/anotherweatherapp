@@ -262,8 +262,7 @@ function animateSun() {
     sunriseDate = new Date(sunriseTimestamp * 1000);
 	sunsetDate = new Date(sunsetTimestamp * 1000);
 	const currentDate = new Date();
-    // const hours = currentDate.getHours();
-    const hours = 22;
+    const hours = currentDate.getHours();
     var sunsetFinal = sunsetDate.getHours();
     var sunriseFinal = sunriseDate.getHours();
     var x = Math.round(((hours - sunriseFinal)/(sunsetFinal - sunriseFinal)) * 180);
