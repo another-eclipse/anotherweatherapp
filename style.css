@@ -385,7 +385,12 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%) blur(1px);
 }
 
-.starry-sky{
+.starry-sky {
+  display: none;
+}
+
+.starry-sky.night{
+  display: block;
   position: absolute;
   top: 0;
 }

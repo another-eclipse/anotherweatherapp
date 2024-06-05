@@ -18,6 +18,7 @@ let lightning = document.getElementById("lightning");
 let drops = document.getElementById("drops");
 let cloud1 = document.querySelector(".cloud1");
 let cloud2 = document.querySelector(".cloud2");
+let starrySky = document.querySelector(".starry-sky");
 let title = document.getElementById("title");
 let cityButtons = document.getElementById("cityButtons");
 let hometownButtons = document.getElementById("hometownButtons");
@@ -263,6 +264,7 @@ function animateSun() {
 	sunsetDate = new Date(sunsetTimestamp * 1000);
 	const currentDate = new Date();
     const hours = currentDate.getHours();
+
     var sunsetFinal = sunsetDate.getHours();
     var sunriseFinal = sunriseDate.getHours();
     var x = Math.round(((hours - sunriseFinal)/(sunsetFinal - sunriseFinal)) * 180);
@@ -274,9 +276,11 @@ function animateSun() {
         overlay.classList.add("night");
         cityAdjective.innerHTML = 'dark';
         drops.classList.add("night");
+        starrySky.classList.add("night");
     } else {
         overlay.classList.remove("night");
         drops.classList.remove("night");
+        starrySky.classList.remove("night");
     }
 }
 
