@@ -10,7 +10,6 @@ let cityName = document.getElementById("cityName");
 let cityAdjective = document.getElementById("cityAdjective");
 let realTemp = document.getElementById("realTemp");
 let feelTemp = document.getElementById("feelTemp");
-let weatherBackground = document.getElementById("weatherBackground");
 let overlay = document.getElementById("overlay");
 let hometown = document.getElementById("hometown");
 let sky = document.getElementById("sky");
@@ -23,14 +22,13 @@ let title = document.getElementById("title");
 let cityButtons = document.getElementById("cityButtons");
 let hometownButtons = document.getElementById("hometownButtons");
 let alertWindow = document.getElementById("alertWindow");
-let welcomeScreen = document.getElementById("welcomeScreen");
-let logo = document.getElementById("logo");
 let weatherContainer = document.getElementById("weather");
 let vectorsSB = document.getElementById("vectorsSB");
 let vectorsOS = document.getElementById("vectorsOS");
 let birds = document.getElementById("birds");
 let vectors = document.querySelector(".vectors");
 let root = document.querySelector(':root');
+let grass = document.getElementById("grass");
 
 window.addEventListener("load", function() {
     // welcomeScreen.style.display = "grid";
@@ -206,6 +204,7 @@ async function fillData(resultData) {
         setInterval(animateSun(), 1000 * 60 * 60);
 
         lightning.classList.remove("stormy");
+        vectors.classList.remove("cloudy-vectors", "rainy-vectors", "snowy-vectors", "sunny-vectors");
         sky.classList.remove("rainy");
         drops.classList.remove("rainy");
         cloud1.classList.remove("animate"); 
@@ -219,6 +218,7 @@ async function fillData(resultData) {
                 lightning.classList.add("stormy");
                 root.style.setProperty('--bgcolor', '#08326f');
                 vectors.classList.add("rainy-vectors");
+                grass.style.filter = "brightness(0) saturate(100%) invert(12%) sepia(27%) saturate(6912%) hue-rotate(207deg) brightness(96%) contrast(94%)";
                 break;
             case 'Drizzle':
                 cityAdjective.innerHTML = 'drizzly';
@@ -229,6 +229,7 @@ async function fillData(resultData) {
                 drops.classList.add("rainy");
                 root.style.setProperty('--bgcolor', '#08326f');
                 vectors.classList.add("rainy-vectors");
+                grass.style.filter = "brightness(0) saturate(100%) invert(12%) sepia(27%) saturate(6912%) hue-rotate(207deg) brightness(96%) contrast(94%)";
                 break;
             case 'Rain':
                 cityAdjective.innerHTML = 'rainy';
@@ -239,6 +240,7 @@ async function fillData(resultData) {
                 drops.classList.add("rainy");
                 root.style.setProperty('--bgcolor', '#08326f');
                 vectors.classList.add("rainy-vectors");
+                grass.style.filter = "brightness(0) saturate(100%) invert(12%) sepia(27%) saturate(6912%) hue-rotate(207deg) brightness(96%) contrast(94%)";
                 animateSun();
                 break;
             case 'Snow':
@@ -249,6 +251,7 @@ async function fillData(resultData) {
                 sky.classList.add("snowy");
                 vectors.classList.add("snowy-vectors");
                 root.style.setProperty('--bgcolor', 'rgb(138, 181, 255)');
+                grass.style.filter = "brightness(0) saturate(100%) invert(36%) sepia(25%) saturate(1198%) hue-rotate(179deg) brightness(91%) contrast(91%)";
                 break;
             case 'Atmosphere':
                 cityAdjective.innerHTML = 'misty';
@@ -263,6 +266,7 @@ async function fillData(resultData) {
                 overlay.classList.add('sunny-overlay');
                 root.style.setProperty('--bgcolor', 'rgb(255, 183, 0)');
                 vectors.classList.add("sunny-vectors");
+                grass.style.filter = "brightness(0) saturate(100%) invert(23%) sepia(31%) saturate(7114%) hue-rotate(41deg) brightness(94%) contrast(101%)";
                 animateSun();
                 break;
             case 'Clouds':
@@ -275,6 +279,7 @@ async function fillData(resultData) {
                 cloud1.classList.add("animate");
                 vectors.classList.add("cloudy-vectors");
                 root.style.setProperty('--bgcolor', 'rgb(0,76,127)');
+                grass.style.filter = "brightness(0) saturate(100%) invert(19%) sepia(25%) saturate(6442%) hue-rotate(186deg) brightness(94%) contrast(101%)";
                 animateSun();
                 break;
         }
