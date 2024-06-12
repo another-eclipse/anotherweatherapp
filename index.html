@@ -14,16 +14,30 @@
         <p id="alertWindow">
         </p>
     </div>
-    <img id="weatherBackground" src="" alt="">
-    <div id="overlay"></div>
+    <!-- <img id="weatherBackground" src="" alt=""> -->
+    <div id="overlay">
+        <div class="vectors" id="vectorsOS">
+            
+            <img id="cathedral" src="./images/katedrala.png" alt="">
+            <img id="fort" src="./images/tvrda.png" alt="">
+            <img id="tree1" src="./images/tree1.png" alt="">
+            <img id="tree2" src="./images/tree2.png" alt="">
+            <img id="treeFort" src="./images/tree2.png" alt="">
+            <img id="tree3" src="./images/tree3.png" alt="">
+            <img id="tree4" src="./images/tree4.png" alt="">
+            
+            <img id="building" src="./images/osijek1.png" alt="">
+            <img id="bridge" src="./images/most.png" alt="">
+            
+        </div>
+    </div>
+    
     <div class="vectors" id="vectorsSB">
         <img class="vector-img" id="grass" src="./images/grass.png" alt="">
         <!-- <img class="vector-img" id="statue" src="./images/ballerina.png" alt="">
         <img class="vector-img" id="dandelion" src="./images/dandelion.png" alt=""> -->
     </div>
-    <div class="vectors">
-        
-    </div>
+    
     <div class="vectors">
         
     </div>
@@ -38,8 +52,16 @@
     </div>
     <div id="sky"></div>
     <div id="drops"></div>
+    <div id="birds">
+        <img id="bird1" src="./images/bird.gif" alt="">
+        <img id="bird2" src="./images/bird2.gif" alt="">
+        <img id="butterflies" src="./images/butterflies.gif" alt="">
+    </div>
    
-    <div id="lightning"></div>
+    <div id="lightning">
+        <img id="storm1" src="./images/storm1.png" alt="">
+        <img id="storm2" src="./images/storm2.png" alt="">
+    </div>
     <div class="cloud-container">
     <div class="cloud1"></div>
     <div class="weather-container">
@@ -49,11 +71,12 @@
             
         </div>
         <div class="sun-container">
+            <img class="vector-img" id="grass" src="./images/grass.png" alt="">
             <div class="sun">
                 <img id="sunReplacement" src="./images/sun.png" alt="">
                 <img id="moon" src="./images/moon.png" alt="">
             </div>
-            <div class="sun-cover"></div>
+            
         </div>  
         
     </div>
@@ -63,6 +86,7 @@
         <p id="cityName" hidden>
     </div>
     <div class="buttons">
+       
         <a href="javascript:void(0)" id="hometownBox" onclick="showHometown()">Hometown</a>
         <div id="hometownButtons">
             <select name="Hometown" id="hometown">Hometown
@@ -83,6 +107,9 @@
             <button type="button" class="city-button" onclick="getOdenseResult()">Odense</button>
             <button type="button" class="city-button" onclick="getBadAiblingResult()">Bad Aibling</button>
         </div>
+
+        <a href="javascript:void(0)" onclick="openFullScreen()" id="fullscreenBtn" class="btn-view active-btn" title="Expand">
+            <img src="./images/full-screen.svg" alt=""></a>
     </div>
     <div class="starry-sky">
         <div class="star">★</div>

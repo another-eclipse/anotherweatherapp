@@ -27,6 +27,10 @@ let welcomeScreen = document.getElementById("welcomeScreen");
 let logo = document.getElementById("logo");
 let weatherContainer = document.getElementById("weather");
 let vectorsSB = document.getElementById("vectorsSB");
+let vectorsOS = document.getElementById("vectorsOS");
+let birds = document.getElementById("birds");
+let vectors = document.querySelector(".vectors");
+let root = document.querySelector(':root');
 
 window.addEventListener("load", function() {
     // welcomeScreen.style.display = "grid";
@@ -62,6 +66,7 @@ function saveHometown() {
 
 
 async function getBrodResult() {
+    vectors.classList.remove("visible");
         try {
             let data = await getSlavonskiBrod();
             while(!data ||data === "" || data === 0){
@@ -80,6 +85,7 @@ async function getBrodResult() {
 }
 
 async function getBadAiblingResult() {
+    vectors.classList.remove("visible");
     try {
         let data = await getBadAibling();
         while(!data ||data === "" || data === 0){
@@ -97,6 +103,7 @@ async function getBadAiblingResult() {
 }
 
 async function getOdenseResult() {
+    vectors.classList.remove("visible");
     try {
         let data = await getOdense();
         while(!data ||data === "" || data === 0){
@@ -114,6 +121,7 @@ async function getOdenseResult() {
 }
 
 async function getOsijekResult() {
+    vectors.classList.remove("visible");
     try {
         let data = await getOsijek();
         while(!data ||data === "" || data === 0){
@@ -123,14 +131,17 @@ async function getOsijekResult() {
         console.log(data);
         let resultData = JSON.parse(data);
         fillData(resultData);
+        vectorsOS.classList.add("visible");
         weatherBackground.src = './images/osijek.png';
         cityButtons.classList.remove("visible");
+        
     } catch (err) {
         console.log(err);
     }
 }
 
 async function getStrosinciResult() {
+    vectors.classList.remove("visible");
     try {
         let data = await getStrosinci();
         while(!data ||data === "" || data === 0){
@@ -194,7 +205,7 @@ async function fillData(resultData) {
 		animateSun();
         setInterval(animateSun(), 1000 * 60 * 60);
 
-        
+        lightning.classList.remove("stormy");
         sky.classList.remove("rainy");
         drops.classList.remove("rainy");
         cloud1.classList.remove("animate"); 
@@ -206,6 +217,8 @@ async function fillData(resultData) {
                 sky.classList.add("rainy");
                 drops.classList.add("rainy");
                 lightning.classList.add("stormy");
+                root.style.setProperty('--bgcolor', '#08326f');
+                vectors.classList.add("rainy-vectors");
                 break;
             case 'Drizzle':
                 cityAdjective.innerHTML = 'drizzly';
@@ -214,6 +227,8 @@ async function fillData(resultData) {
                 overlay.classList.add('clouds-overlay');
                 sky.classList.add("drizzly");
                 drops.classList.add("rainy");
+                root.style.setProperty('--bgcolor', '#08326f');
+                vectors.classList.add("rainy-vectors");
                 break;
             case 'Rain':
                 cityAdjective.innerHTML = 'rainy';
@@ -222,6 +237,8 @@ async function fillData(resultData) {
                 overlay.classList.add('rain-overlay');
                 sky.classList.add("rainy");
                 drops.classList.add("rainy");
+                root.style.setProperty('--bgcolor', '#08326f');
+                vectors.classList.add("rainy-vectors");
                 animateSun();
                 break;
             case 'Snow':
@@ -230,6 +247,8 @@ async function fillData(resultData) {
                 sunReplacement.classList.add("clouds");
                 overlay.classList.add('snow-overlay');
                 sky.classList.add("snowy");
+                vectors.classList.add("snowy-vectors");
+                root.style.setProperty('--bgcolor', 'rgb(138, 181, 255)');
                 break;
             case 'Atmosphere':
                 cityAdjective.innerHTML = 'misty';
@@ -239,8 +258,11 @@ async function fillData(resultData) {
                 overlay.className= "";
                 cityAdjective.innerHTML = 'sunny';
 				sunReplacement.classList.add("sunny");
+                birds.classList.add("visible");
                 sunReplacement.src = "./images/sun.png";
                 overlay.classList.add('sunny-overlay');
+                root.style.setProperty('--bgcolor', 'rgb(255, 183, 0)');
+                vectors.classList.add("sunny-vectors");
                 animateSun();
                 break;
             case 'Clouds':
@@ -251,6 +273,8 @@ async function fillData(resultData) {
                 overlay.classList.add('clouds-overlay');
                 sky.classList.add("cloudy");
                 cloud1.classList.add("animate");
+                vectors.classList.add("cloudy-vectors");
+                root.style.setProperty('--bgcolor', 'rgb(90, 142, 169)');
                 animateSun();
                 break;
         }
@@ -357,3 +381,19 @@ for (i = 0; i < star; i++) {
 document.getElementsByClassName("star")[i].style.transform = "translateX(" + x + "px)";
 document.getElementsByClassName("star")[i].style.animationDuration = y + "s";  
 } 
+
+function openFullScreen() {
+    var elem = document.body;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+        /* Firefox */
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+        /* Chrome, Safari and Opera */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        /* IE/Edge */
+        elem.msRequestFullscreen();
+    }
+}
