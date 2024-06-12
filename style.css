@@ -774,15 +774,7 @@ script {
   gap: 10px;
 }
 
-.city-button {
-  border-radius: 10px;
-  border: none;
-  background-color: rgb(77, 134, 169);
-  font-family: "ModernLoveCaps";
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-}
+
 
 #hometownButtons button {
   cursor: pointer;
@@ -1035,14 +1027,7 @@ script {
     gap: 10px;
   }
 
-  .city-button {
-    border-radius: 10px;
-    border: none;
-    background-color: rgb(77, 134, 169);
-    font-family: "ModernLoveCaps";
-    font-size: 20px;
-    color: white;
-  }
+
 
   #drops.rainy {
     margin-top: 56vh;
