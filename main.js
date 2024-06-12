@@ -274,7 +274,7 @@ async function fillData(resultData) {
                 sky.classList.add("cloudy");
                 cloud1.classList.add("animate");
                 vectors.classList.add("cloudy-vectors");
-                root.style.setProperty('--bgcolor', 'rgb(90, 142, 169)');
+                root.style.setProperty('--bgcolor', 'rgb(0,76,127)');
                 animateSun();
                 break;
         }

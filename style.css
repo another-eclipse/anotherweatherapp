@@ -308,7 +308,8 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 }
 
 .clouds-overlay {
-  background-color: rgb(90, 142, 169);
+  background: rgb(45, 45, 123);
+  background: linear-gradient(180deg, rgb(9, 61, 121) 0%, rgb(104, 230, 255) 100%);
 }
 
 .snow-overlay {
@@ -499,7 +500,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 }
 
 .cloudy-vectors {
-  filter: brightness(0) saturate(100%) invert(22%) sepia(11%) saturate(2926%) hue-rotate(158deg) brightness(99%) contrast(87%);
+  filter: brightness(0) saturate(100%) invert(19%) sepia(25%) saturate(6442%) hue-rotate(186deg) brightness(94%) contrast(101%);
 }
 
 .snowy-vectors {
@@ -860,7 +861,6 @@ script {
 
   #title {
     text-wrap: wrap !important;
-    font-family: 'ModernLove';
     font-size: 20px;
     top: 74vh !important;
   }
