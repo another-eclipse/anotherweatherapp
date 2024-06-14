@@ -25,13 +25,13 @@ let alertWindow = document.getElementById("alertWindow");
 let weatherContainer = document.getElementById("weather");
 let vectorsSB = document.getElementById("vectorsSB");
 let vectorsOS = document.getElementById("vectorsOS");
+let vectorsST = document.getElementById("vectorsST");
 let birds = document.getElementById("birds");
 let vectors = document.querySelector(".vectors");
 let root = document.querySelector(':root');
 let grass = document.getElementById("grass");
 
 window.addEventListener("load", function() {
-    // welcomeScreen.style.display = "grid";
 
     switch(localHometown){
         case "osijek":
@@ -73,10 +73,10 @@ async function getBrodResult() {
             }
             console.log(data);
             let resultData = JSON.parse(data);
-            fillData(resultData);
-            weatherBackground.src = './images/sb1.png';
             cityButtons.classList.remove("visible");
             vectorsSB.classList.add("visible");
+            vectors = vectorsSB;
+            fillData(resultData);
         } catch (err) {
             console.log(err);
         }
@@ -93,7 +93,6 @@ async function getBadAiblingResult() {
         console.log(data);
         let resultData = JSON.parse(data);
         fillData(resultData);
-        weatherBackground.src = './images/badaibling.png';
         cityButtons.classList.remove("visible");
     } catch (err) {
         console.log(err);
@@ -111,7 +110,6 @@ async function getOdenseResult() {
         console.log(data);
         let resultData = JSON.parse(data);
         fillData(resultData);
-        weatherBackground.src = './images/odense.png';
         cityButtons.classList.remove("visible");
     } catch (err) {
         console.log(err);
@@ -128,11 +126,10 @@ async function getOsijekResult() {
         }
         console.log(data);
         let resultData = JSON.parse(data);
-        fillData(resultData);
         vectorsOS.classList.add("visible");
-        weatherBackground.src = './images/osijek.png';
         cityButtons.classList.remove("visible");
-        
+        vectors = vectorsOS;
+        fillData(resultData);
     } catch (err) {
         console.log(err);
     }
@@ -148,9 +145,10 @@ async function getStrosinciResult() {
         }
         console.log(data);
         let resultData = JSON.parse(data);
-        fillData(resultData);
-        weatherBackground.src = './images/strosinci1.png';
+        vectorsST.classList.add("visible");
         cityButtons.classList.remove("visible");
+        vectors = vectorsST;
+        fillData(resultData);
     } catch (err) {
         console.log(err);
     }

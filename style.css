@@ -32,7 +32,7 @@
   :not(:root):fullscreen::backdrop {
     position: fixed;
     inset: 0px;
-    background: #08326f;
+    background: var(--bgcolor);
 }
 
 body {
@@ -165,6 +165,7 @@ h3 {
 
 .cloud-container{
   overflow: hidden;
+  z-index: 10;
 }
 
 .clouds {
@@ -262,7 +263,6 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 }
 
 .vectors {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -280,21 +280,6 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   z-index: 32;
   transition: all 0.3s ease-in-out;
   filter: brightness(0) saturate(100%) invert(12%) sepia(27%) saturate(6912%) hue-rotate(207deg) brightness(96%) contrast(94%);
-}
-
-#dandelion {
-  position: absolute;
-  bottom: 0;
-  height: 30vh;
-  left: 50vw;
-}
-
-#statue {
-  position: absolute;
-  bottom: 0;
-  height: 20vh;
-  left: 30vw;
-  filter: brightness(0) saturate(100%) invert(99%) sepia(100%) saturate(8%) hue-rotate(299deg) brightness(107%) contrast(100%);
 }
 
 .sunny-overlay {
@@ -471,6 +456,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   display: block;
   position: absolute;
   margin-top: 63vh;
+  z-index: 20;
   height: 200px;
   opacity: 0.5;
   width: 100%;
@@ -507,30 +493,28 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   filter: brightness(0) saturate(100%) invert(36%) sepia(25%) saturate(1198%) hue-rotate(179deg) brightness(91%) contrast(91%);
 }
 
-#vectorsOS {
-  position: absolute;
+#vectorsOS, #vectorsSB, #vectorsOD, #vectorsST, #vectorsBA {
   display: flex;
   width: 100%;
   object-fit: contain;
-  top: 72%;
+  opacity: 1;
+  top: 100%;
   transition: top 1s ease-in-out;
 }
 
-#vectorsOS.visible {
+#vectorsOS.visible, #vectorsSB.visible, #vectorsOD.visible, #vectorsST.visible, #vectorsBA.visible {
   top: 0;
+  transition: top 1s ease-in-out;
 }
 
-#overlay {
-  transition: all 1s ease-in-out;
-}
-
-#vectorsOS img {
+#vectorsOS img, #vectorsSB img, #vectorsST img, #vectorsOD img, #vectorsBA img {
   height: 200px;
   position: absolute;
   bottom: 0;
 }
 
 
+/* OSIJEK */
 
 #cathedral {
   left: 50%;
@@ -563,6 +547,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 #tree1 {
   left: 45%;
   animation: sway1 6s infinite ease-in-out;
+  transform-origin: bottom;
   transform-origin: 50% 100% 0;
 }
 
@@ -570,7 +555,6 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   0%, 100%{ transform: rotate(-3deg);}
   50%{ transform: rotate(3deg); }
 }
-
 
 #tree2 {
   left: 85%;
@@ -580,17 +564,17 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 #tree3 {
   left: 60%;
   height: 300px !important;
+  transform-origin: bottom;
   opacity: 0.7;
   z-index: 20;
   animation: sway1 13s infinite ease-in-out;
   transform-origin: 50% 100% 0;
 }
 
-
-
 #treeFort {
   opacity: 0.7;
   height: 15vh !important;
+  transform-origin: bottom;
   left: 5%;
   bottom: 3% !important;
   animation: sway1 13s infinite ease-in-out;
@@ -604,8 +588,122 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 
  #tree2, #tree4 {
   animation: sway1 8s infinite ease-in-out;
+  transform-origin: bottom;
   transform-origin: 50% 100% 0;
 }
+
+/* SLAVONSKI BROD */
+
+#dandelion {
+  left: 45%;
+  bottom: 4% !important;
+}
+
+#waterLeft {
+  left: 40%;
+  height: 220px !important;
+}
+
+#waterRight {
+  left: 54%;
+  height: 220px !important;
+  transform: scaleX(-1);
+}
+
+#waterCenter {
+  left: 47%;
+  height: 250px !important;
+}
+
+#college {
+  left: 20%;
+  opacity: 0.7;
+  height: 280px !important;
+}
+
+#fortSB {
+  left: 74%;
+  opacity: 0.5;
+  bottom: 2% !important;
+}
+
+#balerina {
+  left: 90%;
+  height: 300px !important;
+}
+
+#stork {
+  left: 5%;
+  height: 400px !important;
+}
+
+#ibm {
+  left: 60%;
+}
+
+#tree1sb {
+  left: 66%;
+  bottom: -3% !important;
+  opacity: 1;
+  transform-origin: bottom;
+  animation: sway1 10s infinite ease-in-out;
+}
+
+#tree2sb {
+  left: 58%;
+  height: 400px !important;
+  bottom: -3% !important;
+  transform-origin: bottom;
+  opacity: 0.7;
+  animation: sway1 16s infinite ease-in-out;
+}
+
+#tree3sb {
+  left: -10%;
+  transform-origin: bottom;
+  height: 550px !important;
+  bottom: -3% !important;
+  opacity: 0.5;
+  animation: sway1 16s infinite ease-in-out;
+}
+
+#butterfliessb, #butterfliesos {
+  left: 8%;
+}
+
+/* STROSINCI */
+
+#sign {
+  left: 5%;
+  opacity: 0.7;
+}
+
+#church {
+  left: 30%;
+  height: 450px !important;
+}
+
+#tree1st {
+  left: 40%;
+  height: 250px !important;
+}
+
+#tree2st {
+  left: 15%;
+  opacity: 0.7;
+  height: 400px !important;
+}
+
+#tree3st {
+  left: 80%;
+  height: 500px !important
+}
+
+/* BAD AIBLING */
+
+/* ODENSE */
+
+
 
 .starry-sky {
   display: none;
@@ -675,6 +773,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   width: 100vw;
   bottom: -17vh;
   gap: 20px;
+  z-index: 30;
 }
 
 .buttons a {
@@ -683,14 +782,6 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 
 #fullscreenBtn {
   margin-right: 40px;
-}
-
-#vectorsSB {
-  display: none;
-}
-
-#vectorsSB.visible {
-  display: block;
 }
 
 
