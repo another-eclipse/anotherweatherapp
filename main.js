@@ -9,7 +9,7 @@ let localHometown = localStorage.getItem("hometown");
 let cityName = document.getElementById("cityName");
 let cityAdjective = document.getElementById("cityAdjective");
 let realTemp = document.getElementById("realTemp");
-let feelTemp = document.getElementById("feelTemp");
+// let feelTemp = document.getElementById("feelTemp");
 let overlay = document.getElementById("overlay");
 let hometown = document.getElementById("hometown");
 let sky = document.getElementById("sky");
@@ -174,7 +174,7 @@ async function fillData(resultData) {
         cityName.innerHTML = "Strošinci";
     }
         realTemp.innerHTML = Math.round(resultData.main.temp) + ' °C';
-        feelTemp.innerHTML = 'Feels like ' +Math.round(resultData.main.feels_like) + ' °C';
+        // feelTemp.innerHTML = 'Feels like ' +Math.round(resultData.main.feels_like) + ' °C';
         let adjective = resultData.weather[0].main;
         
 
@@ -201,6 +201,7 @@ async function fillData(resultData) {
 		animateSun();
         setInterval(animateSun(), 1000 * 60 * 60);
 
+        birds.classList.remove("visible");
         lightning.classList.remove("stormy");
         vectors.classList.remove("cloudy-vectors", "rainy-vectors", "snowy-vectors", "sunny-vectors");
         sky.classList.remove("rainy");
@@ -262,7 +263,7 @@ async function fillData(resultData) {
                 birds.classList.add("visible");
                 sunReplacement.src = "./images/sun.png";
                 overlay.classList.add('sunny-overlay');
-                root.style.setProperty('--bgcolor', 'rgb(255, 183, 0)');
+                root.style.setProperty('--bgcolor', 'rgb(135, 76, 0)');
                 vectors.classList.add("sunny-vectors");
                 grass.style.filter = "brightness(0) saturate(100%) invert(23%) sepia(31%) saturate(7114%) hue-rotate(41deg) brightness(94%) contrast(101%)";
                 animateSun();
@@ -273,6 +274,7 @@ async function fillData(resultData) {
 				sunReplacement.src = "./images/cloud.png";
 				sunReplacement.classList.add("clouds");
                 overlay.classList.add('clouds-overlay');
+                birds.classList.add("visible");
                 sky.classList.add("cloudy");
                 cloud1.classList.add("animate");
                 vectors.classList.add("cloudy-vectors");

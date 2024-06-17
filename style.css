@@ -278,12 +278,11 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   left: -30vw;
   width: 200%;
   z-index: 32;
-  transition: all 0.3s ease-in-out;
   filter: brightness(0) saturate(100%) invert(12%) sepia(27%) saturate(6912%) hue-rotate(207deg) brightness(96%) contrast(94%);
 }
 
 .sunny-overlay {
-  background-color: rgb(135, 76, 0);
+  background-color: rgb(255, 183, 0);
   opacity: 1;
 }
 
@@ -396,6 +395,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 #birds {
   display: none;
 }
+
 
 #birds.visible {
   display: flex;
@@ -686,17 +686,90 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 #tree1st {
   left: 40%;
   height: 250px !important;
+  animation: sway1 6s infinite ease-in-out;
+  transform-origin: bottom;
 }
 
 #tree2st {
-  left: 15%;
-  opacity: 0.7;
-  height: 400px !important;
+  left: -4%;
+  height: 450px !important;
+  animation: sway1 8s infinite ease-in-out;
+  transform-origin: bottom;
 }
 
 #tree3st {
   left: 80%;
-  height: 500px !important
+  height: 500px !important;
+  opacity: 0.7;
+  animation: sway1 14s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#waterSpring {
+  left: 70%;
+}
+
+#waterLeftST {
+  left: 67%;
+  opacity: 0.7;
+  bottom: -4% !important;
+  height: 100px !important;
+}
+
+#horseRun {
+  animation: run1 50s infinite;
+  right: 0%;
+  height: 100px !important;
+}
+
+@keyframes run1 {
+  0% {
+    right: -20%;
+  }
+
+  100% {
+    right: 200%;
+  }
+  
+}
+
+#butterfliesst{
+  left: 19%;
+  bottom: 5% !important;
+  height: 150px !important;
+}
+
+#tree4st {
+  left: 55%;
+  height: 400px !important;
+  opacity: 0.7;
+  animation: sway1 15s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#roses {
+  left: 18%;
+  height: 100px !important;
+}
+
+#tree5st {
+  left: 20%;
+  opacity: 0.7;
+  height: 300px !important;
+  animation: sway1 15s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#roses2 {
+  opacity: 0.7;
+  left: 76%;
+  height: 100px !important;
+}
+
+#swing {
+  left: 85%;
+  bottom: -5% !important;
+  height: 300px !important;
 }
 
 /* BAD AIBLING */
