@@ -109,8 +109,11 @@ async function getOdenseResult() {
         }
         console.log(data);
         let resultData = JSON.parse(data);
-        fillData(resultData);
         cityButtons.classList.remove("visible");
+        vectorsOD.classList.add("visible");
+            vectors = vectorsOD;
+        fillData(resultData);
+        
     } catch (err) {
         console.log(err);
     }
@@ -203,7 +206,7 @@ async function fillData(resultData) {
 
         birds.classList.remove("visible");
         lightning.classList.remove("stormy");
-        vectors.classList.remove("cloudy-vectors", "rainy-vectors", "snowy-vectors", "sunny-vectors");
+        vectors.classList.remove("cloudy-vectors", "rainy-vectors", "snowy-vectors", "sunny-vectors", "night-vectors");
         sky.classList.remove("rainy");
         drops.classList.remove("rainy");
         cloud1.classList.remove("animate"); 
@@ -292,7 +295,8 @@ function animateSun() {
     sunriseDate = new Date(sunriseTimestamp * 1000);
 	sunsetDate = new Date(sunsetTimestamp * 1000);
 	const currentDate = new Date();
-    const hours = currentDate.getHours();
+    const hours = 23;
+    // currentDate.getHours();
 
     var sunsetFinal = sunsetDate.getHours();
     var sunriseFinal = sunriseDate.getHours();
@@ -306,10 +310,23 @@ function animateSun() {
         cityAdjective.innerHTML = 'dark';
         drops.classList.add("night");
         starrySky.classList.add("night");
+        sunReplacement.className = "";
+        sunReplacement.classList.add("night");
+        vectors.classList.add("night-vectors");
+        root.style.setProperty('--bgcolor', '#010038');
+        grass.style.filter = "brightness(0) saturate(100%) invert(5%) sepia(91%) saturate(4539%) hue-rotate(241deg) brightness(80%) contrast(117%)";
+
+        var x = 70;
+    document.querySelector(':root').style.setProperty('--rotation', '-'+x+'deg');
+    
+    sun.style.transform="rotate("+x+"deg)";
+
+    
     } else {
         overlay.classList.remove("night");
         drops.classList.remove("night");
         starrySky.classList.remove("night");
+        sunReplacement.classList.remove("night");
     }
 }
 
@@ -388,17 +405,22 @@ document.getElementsByClassName("star")[i].style.animationDuration = y + "s";
 } 
 
 function openFullScreen() {
-    var elem = document.body;
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-        /* Firefox */
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-        /* Chrome, Safari and Opera */
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-        /* IE/Edge */
-        elem.msRequestFullscreen();
-    }
-}
+    if (!document.fullscreenElement &&    // alternative standard method
+        !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
+         if (document.documentElement.requestFullscreen) {
+           document.documentElement.requestFullscreen();
+         } else if (document.documentElement.mozRequestFullScreen) {
+           document.documentElement.mozRequestFullScreen();
+         } else if (document.documentElement.webkitRequestFullscreen) {
+           document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+         }
+       } else {
+          if (document.cancelFullScreen) {
+             document.cancelFullScreen();
+          } else if (document.mozCancelFullScreen) {
+             document.mozCancelFullScreen();
+          } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+          }
+       }
+     }

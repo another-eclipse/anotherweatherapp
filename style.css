@@ -129,7 +129,7 @@ h3 {
   pointer-events: none;
 }
 
-#moon {
+/* #moon {
   content: "";
   position:absolute;
   top:calc(50% - 20px);
@@ -140,7 +140,7 @@ h3 {
   filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
   pointer-events: none;
   animation: swing 5s ease-in-out infinite;
-}
+} */
 
 @keyframes swing {
   0% {
@@ -161,6 +161,13 @@ h3 {
 
 #sunReplacement.clouds {
   content:url("./images/cloud.png");
+  animation: move1 5s ease-in-out infinite;
+}
+
+#sunReplacement.night {
+  content: url("./images/moon.png");
+  animation: swing 5s ease-in-out infinite; 
+  rotate: -90deg;
 }
 
 .cloud-container{
@@ -282,7 +289,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 }
 
 .sunny-overlay {
-  background-color: rgb(255, 183, 0);
+  background-color: rgb(255, 212, 104);
   opacity: 1;
 }
 
@@ -471,6 +478,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   height: 100px;
   opacity: 1;
   width: 100%;
+  z-index: 2;
   background-size: contain;
   background-image: url("./images/fireflies.webp");
   background-repeat: repeat-x;
@@ -491,6 +499,10 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 
 .snowy-vectors {
   filter: brightness(0) saturate(100%) invert(36%) sepia(25%) saturate(1198%) hue-rotate(179deg) brightness(91%) contrast(91%);
+}
+
+.night-vectors {
+  filter: brightness(0) saturate(100%) invert(5%) sepia(91%) saturate(4539%) hue-rotate(241deg) brightness(80%) contrast(117%);
 }
 
 #vectorsOS, #vectorsSB, #vectorsOD, #vectorsST, #vectorsBA {
@@ -790,7 +802,80 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 
 /* ODENSE */
 
+#castle {
+  left: 50%;
+  height: 400px !important;
+  opacity: 0.5;
+}
 
+#theatre {
+  height: 300px !important;
+  opacity: 0.8;
+}
+
+#canut {
+  left: 52%;
+  height: 370px !important;
+}
+
+#cathedralod {
+  left: 30%;
+  height: 500px !important;
+  opacity: 0.8;
+}
+
+#tree1od {
+  left: 22%;
+  height: 150px !important;
+  animation: sway1 8s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#tree2od {
+  left: 80%;
+  height: 350px !important;
+  animation: sway1 12s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#tree3od {
+  left: -5%;
+  height: 500px !important;
+  opacity: 1;
+  animation: sway1 15s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#tree5od {
+  left: 43%;
+  height: 260px !important;
+  opacity: 1;
+  transform: scaleX(-1);
+  animation: sway1 10s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#bicycle {
+  left: 80%;
+  height: 150px !important;
+  bottom: -3% !important;
+}
+
+#rosesod {
+  height: 150px !important;
+  left: 57%;
+}
+#rosesod2 {
+  height: 100px !important;
+  left: 1%;
+}
+
+#butterfliesod {
+  left: 60%;
+}
+
+
+/* ----------- */
 
 .starry-sky {
   display: none;
@@ -800,6 +885,8 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   display: block;
   position: absolute;
   top: 0;
+  height: 78vh;
+  z-index: 1;
 }
 
 .star {
@@ -1139,12 +1226,12 @@ script {
     animation: move3 5s ease-in-out infinite;
   }
 
-  #moon {
+  /* #moon {
     height: 90px !important;
     width: 90px !important;
     right: -46px !important;
     animation: swing 5s ease-in-out infinite; 
-  }
+  } */
 
   #realTemp {
     margin-top: -30% !important;
@@ -1446,6 +1533,34 @@ script {
   #balerina {
     left: 64%;
     height: 300px !important;
+  }
+
+  #castle, #theatre, #tree1od, #tree2od, #tree5od, #rosesod {
+    display: none;
+  }
+
+  #tree3od {
+    left: -30%;  
+  }
+
+  #cathedralod {
+    height: 300px !important;
+    left: 10%;
+    opacity: 0.5;
+  }
+
+  #canut {
+    left: 40%;
+    height: 350px !important;
+  }
+
+  #rosesod2 {
+    left: 70%;
+  }
+
+  #bicycle {
+    left: 0;
+    height: 150px !important; 
   }
 
 }
