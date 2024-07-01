@@ -295,7 +295,7 @@ function animateSun() {
     sunriseDate = new Date(sunriseTimestamp * 1000);
 	sunsetDate = new Date(sunsetTimestamp * 1000);
 	const currentDate = new Date();
-    const hours = 23;
+    const hours = currentDate.getHours();
     // currentDate.getHours();
 
     var sunsetFinal = sunsetDate.getHours();
@@ -409,18 +409,26 @@ function openFullScreen() {
         !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
          if (document.documentElement.requestFullscreen) {
            document.documentElement.requestFullscreen();
+           screen.orientation.lock('portrait');
          } else if (document.documentElement.mozRequestFullScreen) {
            document.documentElement.mozRequestFullScreen();
+           screen.orientation.lock('portrait');
          } else if (document.documentElement.webkitRequestFullscreen) {
            document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+           screen.orientation.lock('portrait');
          }
        } else {
           if (document.cancelFullScreen) {
              document.cancelFullScreen();
+             screen.orientation.lock('portrait');
           } else if (document.mozCancelFullScreen) {
              document.mozCancelFullScreen();
+             screen.orientation.lock('portrait');
           } else if (document.webkitCancelFullScreen) {
             document.webkitCancelFullScreen();
+            screen.orientation.lock('portrait');
           }
        }
      }
+
+     
