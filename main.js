@@ -1,15 +1,10 @@
 
-let weatherURL = "https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}";
-let geocodingURL = "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}";
 let localHometown = localStorage.getItem("hometown");
-
-
 
 
 let cityName = document.getElementById("cityName");
 let cityAdjective = document.getElementById("cityAdjective");
 let realTemp = document.getElementById("realTemp");
-// let feelTemp = document.getElementById("feelTemp");
 let overlay = document.getElementById("overlay");
 let hometown = document.getElementById("hometown");
 let sky = document.getElementById("sky");
@@ -26,6 +21,7 @@ let weatherContainer = document.getElementById("weather");
 let vectorsSB = document.getElementById("vectorsSB");
 let vectorsOS = document.getElementById("vectorsOS");
 let vectorsST = document.getElementById("vectorsST");
+let vectorsOD = document.getElementById("vectorsOD");
 let birds = document.getElementById("birds");
 let vectors = document.querySelector(".vectors");
 let root = document.querySelector(':root');
@@ -431,4 +427,9 @@ function openFullScreen() {
        }
      }
 
-     
+
+
+     document.addEventListener('click', (e) => {
+         if(!hometownBox.contains(e.target) && (!hometownButtons.contains(e.target))) hometownButtons.classList.remove('visible');
+         if(!citiesBox.contains(e.target)) cityButtons.classList.remove('visible');
+       })

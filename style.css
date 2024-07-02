@@ -87,6 +87,8 @@ h3 {
     justify-content: center;
     top: 77vh;
     color: white;
+    user-select: none;
+  pointer-events: none;
 }
 
 #feelTemp {
@@ -99,6 +101,8 @@ h3 {
   margin: 5px;
   z-index: 20;
   text-shadow: rgb(0, 0, 0) 1px 0 10px;
+  user-select: none;
+  pointer-events: none;
 }
 
 
@@ -116,6 +120,8 @@ h3 {
   transform:rotateX(20deg) rotate(20deg);
   background-repeat:no-repeat;
   transition: all 0.3s ease-in-out;
+  user-select: none;
+  pointer-events: none;
 }
 #sunReplacement {
   content: "";
@@ -248,7 +254,7 @@ h3 {
 }
 
 #overlay {
-
+  user-select: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -286,6 +292,8 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   width: 200%;
   z-index: 32;
   filter: brightness(0) saturate(100%) invert(12%) sepia(27%) saturate(6912%) hue-rotate(207deg) brightness(96%) contrast(94%);
+  user-select: none;
+  pointer-events: none;
 }
 
 .sunny-overlay {
@@ -409,6 +417,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
   filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
   position: absolute;
   width: 100%;
+  user-select: none;
   height: 78vh;
 }
 
@@ -963,18 +972,17 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 #hometownButtons, #cityButtons {
   opacity: 0;
   display: grid;
-  /* opacity: 0; */
   width: 300px;
   right: 0;
   padding: 2%;
   margin: 2%;
   bottom: 90%;
-  background: rgb(221, 242, 255);
+  background: var(--bgcolor);
   border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
+  border: 2px dotted white;
   gap: 10px;
   position: absolute;
-  transition: all 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
   user-select: none;
   pointer-events: none;
 }
@@ -1015,8 +1023,8 @@ script {
 }
 
 #citiesBox, #hometownBox, #fullscreenBtn {
-  width: 60px;
-  height: 60px;
+  height: 6vh;
+  width: 6vh;
   margin-top: 10px;
   padding: 10px;
   border-radius: 10%;
@@ -1038,9 +1046,9 @@ script {
   opacity: 1;
   margin: 2%;
   bottom: 90%;
-  background: rgb(221, 242, 255);
+  background: var(--bgcolor);
   border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
+  border: 2px dotted white;
   height: 10vh;
   gap: 10px;
 }
@@ -1052,9 +1060,9 @@ script {
   opacity: 1;
   margin: 2%;
   bottom: 90%;
-  background: rgb(221, 242, 255);
+  background: var(--bgcolor);
   border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
+  border: 2px dotted white;
   height: fit-content;
   gap: 10px;
 }
@@ -1062,7 +1070,7 @@ script {
 .city-button {
   border-radius: 10px;
   border: none;
-  background-color: rgb(77, 134, 169);
+  background-color: color-mix(in srgb, var(--bgcolor), rgba(255, 255, 255, 0.507));
   font-family: "ModernLoveCaps";
   font-size: 20px;
   color: white;
@@ -1083,7 +1091,7 @@ script {
 #hometownButtons button {
   border-radius: 10px;
   border: none;
-  background-color: rgb(77, 134, 169);
+  background-color: color-mix(in srgb, var(--bgcolor), rgba(255, 255, 255, 0.507));
   font-family: "ModernLoveCaps";
   font-size: 20px;
   color: white;
