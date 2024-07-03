@@ -22,6 +22,7 @@ let vectorsSB = document.getElementById("vectorsSB");
 let vectorsOS = document.getElementById("vectorsOS");
 let vectorsST = document.getElementById("vectorsST");
 let vectorsOD = document.getElementById("vectorsOD");
+let vectorsBA = document.getElementById("vectorsBA");
 let birds = document.getElementById("birds");
 let vectors = document.querySelector(".vectors");
 let root = document.querySelector(':root');
@@ -88,8 +89,11 @@ async function getBadAiblingResult() {
         }
         console.log(data);
         let resultData = JSON.parse(data);
-        fillData(resultData);
         cityButtons.classList.remove("visible");
+        vectorsBA.classList.add("visible");
+        vectors = vectorsBA;
+        fillData(resultData);
+        
     } catch (err) {
         console.log(err);
     }
@@ -262,9 +266,9 @@ async function fillData(resultData) {
                 birds.classList.add("visible");
                 sunReplacement.src = "./images/sun.png";
                 overlay.classList.add('sunny-overlay');
-                root.style.setProperty('--bgcolor', 'rgb(135, 76, 0)');
+                root.style.setProperty('--bgcolor', '#8c2300');
                 vectors.classList.add("sunny-vectors");
-                grass.style.filter = "brightness(0) saturate(100%) invert(23%) sepia(31%) saturate(7114%) hue-rotate(41deg) brightness(94%) contrast(101%)";
+                grass.style.filter = "brightness(0) saturate(100%) invert(14%) sepia(42%) saturate(6922%) hue-rotate(24deg) brightness(95%) contrast(104%)";
                 animateSun();
                 break;
             case 'Clouds':
@@ -433,3 +437,5 @@ function openFullScreen() {
          if(!hometownBox.contains(e.target) && (!hometownButtons.contains(e.target))) hometownButtons.classList.remove('visible');
          if(!citiesBox.contains(e.target)) cityButtons.classList.remove('visible');
        })
+
+       

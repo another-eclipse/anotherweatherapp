@@ -495,7 +495,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 }
 
 .sunny-vectors {
-  filter: brightness(0) saturate(100%) invert(23%) sepia(31%) saturate(7114%) hue-rotate(41deg) brightness(94%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(14%) sepia(42%) saturate(6922%) hue-rotate(24deg) brightness(95%) contrast(104%);
 }
 
 .rainy-vectors {
@@ -809,6 +809,82 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 
 /* BAD AIBLING */
 
+#buildingba {
+  left: 40%;
+  height: 350px !important;
+  opacity: 0.7;
+}
+
+#churchba {
+  left: 15%;
+  height: 400px !important;
+  opacity: 0.7;
+}
+
+#fairy {
+  left: 65%;
+}
+
+#monument {
+  left: 75%;
+  height: 300px !important;
+  opacity: 0.5;
+}
+
+#pole {
+  left: 60%;
+  height: 500px !important;
+}
+
+#tree1ba {
+  left: 86%;
+  opacity: 0.7;
+  animation: sway1 15s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#tree2ba {
+  height: 350px !important;
+  animation: sway1 10s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#tree3ba {
+  left: 50%;
+  height: 200px !important;
+  animation: sway1 8s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#tree4ba {
+  left: 27%;
+  height: 350px !important;
+  animation: sway1 17s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#tree5ba {
+  left: 88%;
+  height: 350px !important;
+  animation: sway1 6s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+#rosesba {
+  height: 150px !important;
+  left: 2%;
+}
+
+#roses2ba {
+  height: 100px !important;
+  left: 51%;
+}
+
+#butterfliesba {
+  left: 67%;
+  bottom: 10% !important;
+}
+
 /* ODENSE */
 
 #castle {
@@ -1107,9 +1183,10 @@ script {
   width: 12vw;
   padding: 2%;
   z-index: 60;
+  color: white;
   opacity: 0;
   top: 0;
-  background: rgb(221, 242, 255);
+  background: var(--bgcolor);
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
   height: 10vh;
@@ -1308,7 +1385,7 @@ script {
     padding: 5%;
     margin: 5%;
     bottom: 90%;
-    background: rgb(221, 242, 255);
+    background: var(--bgcolor);
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
     height: fit-content;
@@ -1321,7 +1398,7 @@ script {
     padding: 5%;
     margin: 5%;
     bottom: 90%;
-    background: rgb(221, 242, 255);
+    background: var(--bgcolor);
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(40, 54, 84, 0.15), 0 0 20px rgba(40, 54, 84, 0.1);
     height: fit-content;
@@ -1331,7 +1408,7 @@ script {
   .city-button {
     border-radius: 10px;
     border: none;
-    background-color: rgb(77, 134, 169);
+    background-color: color-mix(in srgb, var(--bgcolor), rgba(255, 255, 255, 0.507));
     font-family: "ModernLoveCaps";
     font-size: 20px;
     color: white;
@@ -1351,92 +1428,12 @@ script {
   #hometownButtons button {
     border-radius: 10px;
     border: none;
-    background-color: rgb(77, 134, 169);
+    background-color: color-mix(in srgb, var(--bgcolor), rgba(255, 255, 255, 0.507));
     font-family: "ModernLoveCaps";
     font-size: 20px;
     color: white;
   }
 
-  #welcomeScreen {
-    position: absolute;
-    display: grid;
-    height: 100vh;
-    z-index: 50;
-    width: 100vw;
-    background-color: rgb(77, 134, 169);
-    justify-items: center;
-    padding-bottom: 20%;
-    align-items: center;
-    top: -9%;
-  }
-
-  #welcomeScreen h2, #welcomeScreen p {
-    position: absolute;
-    color: white;
-    font-family: "ModernLoveCaps";
-    bottom: 10%;
-  }
-
-  #welcomeScreen h2 {
-    animation: swing-in-top-fwd 0.5s 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-    width:100%;
-  }
-
-  #welcomeScreen p {
-    animation: swing-in-top-fwd 0.5s 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-  }
-
-  #welcomeScreen.fade {
-    transition: all 2s ease-in-out;
-    animation: fade 2s linear;
-  }
-
-  #logo {
-    z-index: 51;
-    display: grid;
-    top: 30%;
-    margin: 3%;
-    position: absolute;
-    animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-  }
-
-  #logo.fade {
-    top: 45%;
-    margin: 0;
-    transition: all 4s ease-in-out;
-    animation: fade2 4s linear;
-  }
-
-  @keyframes fade {
-    0% {
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes fade2 {
-    0% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0.7;
-    }
-    85% {
-      opacity: 0.5;
-    }
-
-    90% {
-      opacity: 0.3;
-    }
-
-    100% {
-      opacity: 0;
-    }
-  }
 
   #weatherBackground {
     height: 75vh !important;
@@ -1569,6 +1566,24 @@ script {
   #bicycle {
     left: 0;
     height: 150px !important; 
+  }
+
+  #churchba, #rosesba, #tree2ba, #tree3ba, #tree4ba, #tree1ba, #pole {
+    display: none;
+  }
+
+  #tree5ba {
+    left: -15%;
+    opacity: 0.7;
+  }
+
+  #fairy {
+    left: 20%;
+    height: 150px !important;
+  }
+
+  #roses2ba {
+    left: 70%;
   }
 
 }
