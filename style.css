@@ -823,6 +823,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 
 #fairy {
   left: 65%;
+  display: none;
 }
 
 #monument {
@@ -881,8 +882,12 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 }
 
 #butterfliesba {
-  left: 67%;
-  bottom: 10% !important;
+  left: 75%;
+}
+
+#tenailuna {
+  left: 65%;
+  bottom: 3% !important;
 }
 
 /* ODENSE */
@@ -1568,8 +1573,17 @@ script {
     height: 150px !important; 
   }
 
-  #churchba, #rosesba, #tree2ba, #tree3ba, #tree4ba, #tree1ba, #pole {
+  #churchba, #rosesba, #tree2ba, #tree4ba, #tree1ba, #pole {
     display: none;
+  }
+
+  #buildingba {
+    display: none;
+  }
+
+  #tree3ba {
+    left: 30%;
+    height: 600px !important;
   }
 
   #tree5ba {
@@ -1577,8 +1591,8 @@ script {
     opacity: 0.7;
   }
 
-  #fairy {
-    left: 20%;
+  #tenailuna {
+    left: 45%;
     height: 150px !important;
   }
 
