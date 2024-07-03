@@ -1203,7 +1203,7 @@ script {
   align-content: center;
 }
 
-.-window {
+.alert-window {
   display: grid;
   position: relative;
   justify-content: center;
@@ -1341,11 +1341,11 @@ script {
     height: 76vh;
   }
   .buttons {
-    position: absolute;
+    position: relative;
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
-    bottom: 11vh;
+    bottom: 0 !important;
   }
 
   #hometownButtons, #cityButtons {
