@@ -296,20 +296,10 @@ async function fillData(resultData) {
                 animateSun();
                 break;
         }
-        title.innerHTML = "It's always " + cityAdjective.innerHTML + " in " + cityName.innerHTML;
-        checkHelioz();
-        
+        title.innerHTML = "It's always " + cityAdjective.innerHTML + " in " + cityName.innerHTML; 
 		
 }
 
-
-function checkHelioz(){
-    if(cityAdjective.innerHTML == "sunny" && cityName.innerHTML == "Slavonski Brod"){
-        sunReplacement.className = "";
-        sunReplacement.classList.add('helioz');
-        sunReplacement.src = "./images/logo2.png";
-    }
-}
 
 
 function animateSun() {

@@ -152,9 +152,6 @@ h3 {
   animation: spin 10s linear infinite;
 }
 
-#sunReplacement.helioz {
-  animation: spin 10s linear infinite;
-}
 
 #sunReplacement.clouds {
   content:url("./images/cloud.png");
