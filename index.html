@@ -172,7 +172,7 @@
     
     <div class="weather-container">
         <div id="weather">
-            <h2 id="realTemp"></h2>
+            <h2 id="realTemp" class="toggle-hide"></h2>
             <!-- <h2 id="feelTemp"></h2> -->
             
         </div>
@@ -186,15 +186,21 @@
         
     </div>
     </div>
+
     <div id="cover"></div>
-    <h2 id="title">
+    <h2 id="title" class="toggle-hide">
         <p id="cityAdjective" hidden>
         <p id="cityName" hidden>
         </h2>
-    <div class="buttons" tabindex="0">
+    
+    
+        <a href="javascript:void(0)" onclick="hideUI()" id="hideUI" title="Hide UI">
+            <img src="./images/ui.png" alt=""></a>
+    
+    <div class="buttons toggle-hide" id="buttonGroup" tabindex="0">
         
 
-        <a href="javascript:void(0)" id="hometownBox" onclick="showHometown()">Hometown</a>
+        <a href="javascript:void(0)" id="hometownBox" onclick="showHometown()" title="Pick your Hometown">Hometown</a>
         <div id="hometownButtons">
             <select name="Hometown" id="hometown">Hometown
                 <option value="slavonskibrod">Slavonski Brod</option>
@@ -206,7 +212,7 @@
             <button type="submit" onclick="saveHometown()">Save my hometown</button>
         </div>
 
-        <a href="javascript:void(0)" id="citiesBox" onclick="showCities()">City</a>
+        <a href="javascript:void(0)" id="citiesBox" onclick="showCities()" title="See other cities">City</a>
         <div id="cityButtons">
             <button type="button" class="city-button" onclick="getBrodResult()">Slavonski Brod</button>
             <button type="button" class="city-button" onclick="getOsijekResult()">Osijek</button>
@@ -215,8 +221,9 @@
             <button type="button" class="city-button" onclick="getBadAiblingResult()">Bad Aibling</button>
         </div>
 
-        <a href="javascript:void(0)" onclick="openFullScreen()" id="fullscreenBtn" class="btn-view active-btn" title="Expand">
+        <a href="javascript:void(0)" onclick="openFullScreen()" id="fullscreenBtn" class="btn-view active-btn" title="Fullscreen">
             <img src="./images/full-screen.svg" alt=""></a>
+        
     </div>
     
 </main>

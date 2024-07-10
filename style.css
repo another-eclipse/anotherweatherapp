@@ -135,19 +135,6 @@ h3 {
   pointer-events: none;
 }
 
-/* #moon {
-  content: "";
-  position:absolute;
-  top:calc(50% - 20px);
-  right:-80px;
-  width:200px;
-  height:200px;
-  border-radius:50%;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(101%) contrast(104%);
-  pointer-events: none;
-  animation: swing 5s ease-in-out infinite;
-} */
-
 @keyframes swing {
   0% {
     transform: rotate(20deg);
@@ -162,6 +149,10 @@ h3 {
 
 #sunReplacement.sunny {
   content:url("./images/sun.png");
+  animation: spin 10s linear infinite;
+}
+
+#sunReplacement.helioz {
   animation: spin 10s linear infinite;
 }
 
@@ -1030,7 +1021,7 @@ background: linear-gradient(173deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba
 }
 
 
-.buttons {
+.buttons, #hideUI {
   position: absolute;
   display: flex;
   justify-content: end;
@@ -1102,13 +1093,30 @@ script {
   width: 40px;
 }
 
-#citiesBox, #hometownBox, #fullscreenBtn {
+#citiesBox, #hometownBox, #fullscreenBtn, #hideUI {
   height: 6vh;
   width: 6vh;
   margin-top: 10px;
   padding: 10px;
   border-radius: 10%;
   border: 2px dotted rgb(0, 0, 0);
+}
+
+#hideUI {
+  filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(0%) hue-rotate(83deg) brightness(107%) contrast(107%);
+  margin-left: 15px;
+  cursor: pointer;
+  user-select: auto;
+  z-index: 50;
+}
+
+.hiddenUI {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#realTemp, #title, #buttonGroup {
+  transition: opacity 0.3s ease-in-out;
 }
 
 #citiesBox {
@@ -1317,6 +1325,7 @@ script {
     width: 90px !important;
     left: -46px !important;
     animation: move3 5s ease-in-out infinite;
+    transition: all 0.3 ease-in-out;
   }
 
   /* #moon {

@@ -36,6 +36,7 @@ let birds = document.getElementById("birds");
 let vectors = document.querySelector(".vectors");
 let root = document.querySelector(':root');
 let grass = document.getElementById("grass");
+let buttonGroup = document.getElementById("buttonGroup");
 
 window.addEventListener("load", function() {
 
@@ -296,7 +297,18 @@ async function fillData(resultData) {
                 break;
         }
         title.innerHTML = "It's always " + cityAdjective.innerHTML + " in " + cityName.innerHTML;
+        checkHelioz();
+        
 		
+}
+
+
+function checkHelioz(){
+    if(cityAdjective.innerHTML == "sunny" && cityName.innerHTML == "Slavonski Brod"){
+        sunReplacement.className = "";
+        sunReplacement.classList.add('helioz');
+        sunReplacement.src = "./images/logo2.png";
+    }
 }
 
 
@@ -448,3 +460,8 @@ function openFullScreen() {
        })
 
        
+function hideUI(){
+    realTemp.classList.toggle("hiddenUI");
+    title.classList.toggle("hiddenUI");
+    buttonGroup.classList.toggle("hiddenUI");
+}
